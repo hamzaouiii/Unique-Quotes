@@ -1,5 +1,4 @@
-var count;
-      Vue.component('demo-grid', {
+Vue.component('demo-grid', {
         template: '#grid-template',
         props: 
         {
@@ -17,18 +16,25 @@ var count;
           })
           return {
             sortKey: '',
-            sortOrders: sortOrders
+            sortOrders: sortOrders 
+          }
+        },
+        watch:
+        {
+          searchQuery: function()
+          {
+            this.msg = "changed"
           }
         },
         computed: 
         {
+          
           filteredData: function () 
           {
             var sortKey = this.sortKey
             var filterKey = this.filterKey && this.filterKey.toLowerCase()
             var order = this.sortOrders[sortKey] || 1
             var data = this.data
-
             if (filterKey) 
             {
               data = data.filter(function (row) {
@@ -45,10 +51,9 @@ var count;
                 return (a === b ? 0 : a > b ? 1 : -1) * order
               })
             }
-            count = data.length;
-            //console.log(count);
             return data
           },
+          
           count: function()
           {
             return this.filteredData.length;
@@ -76,13 +81,8 @@ var demo = new Vue({
   el: '#demo',
   data: 
   {
-    searchQuery: 'Thomas Edison',
+    searchQuery: '',
     gridColumns: ['id','author', 'text'],
-    gridData: quotes,
-    searchCount: 0
-  },
-  methods:
-  {
-    logit: function(){console.log("Search:"+searchCount);}
+    gridData: quotes 
   }
 })

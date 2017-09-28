@@ -2,7 +2,7 @@
 <head>
   <title>Vue example</title>
   <meta charset="utf-8">
-  <script src="vue.js"></script>
+  <script src="vue.vue"></script>
   <link rel="icon" type="image/png" href="vue.png">
   <link rel="stylesheet" type="text/css" href="vue.css">
 
@@ -15,7 +15,6 @@
        
 
   <h3>Showing {{count}} results..</h3>
-
   <table>
     <thead>
       <tr>
@@ -50,13 +49,13 @@
   <demo-grid
     :data="gridData"
     :columns="gridColumns"
-    :filter-key="searchQuery"
-    :searching="searchCount">
+    :filter-key="searchQuery">
   </demo-grid>
 
 </div>
 <script type="text/javascript" src=data.js></script>
-<script type="text/javascript" src=main.js></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script type="text/javascript" src=main.vue></script>
 <script type="text/javascript">
   function FocusOnInput()
 {
