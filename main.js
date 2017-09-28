@@ -6,7 +6,7 @@ var count;
           data: Array,
           columns: Array,
           filterKey: String,
-          searching: String
+          searching: Number
         },
         data: function () 
         {
@@ -45,8 +45,13 @@ var count;
                 return (a === b ? 0 : a > b ? 1 : -1) * order
               })
             }
-                count = data.length;
+            count = data.length;
+            //console.log(count);
             return data
+          },
+          count: function()
+          {
+            return this.filteredData.length;
           } 
         },
         filters: 
@@ -63,21 +68,21 @@ var count;
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
             console
-          },
-          countShownData: function () {
-            this.searchCount = count;
           }
         }
       })
-
 // bootstrap the demo
 var demo = new Vue({
   el: '#demo',
   data: 
   {
-    searchQuery: '',
-    gridColumns: ['ID','quoteAuthor', 'quoteText'],
+    searchQuery: 'Thomas Edison',
+    gridColumns: ['id','author', 'text'],
     gridData: quotes,
-    searchCount: "17"
+    searchCount: 0
+  },
+  methods:
+  {
+    logit: function(){console.log("Search:"+searchCount);}
   }
 })
