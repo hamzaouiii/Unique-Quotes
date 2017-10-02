@@ -3,47 +3,55 @@
   <title>Unique Quotes</title>
   <meta charset="utf-8">
   <script src="vue.vue"></script>
-  <link rel="icon" type="image/png" href="quote.png">
+  <!-- <link rel="icon" type="image/png" href="quote.png"> -->
   <link rel="stylesheet" type="text/css" href="vue.css">
+  <script src="jquery.min.js"></script>
 
 </head>
 <body onload="FocusOnInput()">
 <img src="quote.png">
-  <h1>Unique Quotes</h1>
+<h1>Unique Quotes</h1>
+<!-- template of the rendered content -->
 <script type="text/x-template" id="grid-template">
-     <div>
-       
+ <div v-if="searchFilled">
+  <h3>Browse more than 5000 Quotes</h3>
+ </div>
+ <div v-else>
+      <div v-if="count">
+      <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to <span class="tomato">{{searchQuery}}</span></span>.</h3>
+      <table>
+        <thead>
+          <tr>
+            <th v-for="key in columns"
+              @click="sortBy(key)"
+              :class="{ active: sortKey == key }">
+              {{ key | capitalize }}
+              <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+              </span>
+            </th>
+          </tr>
 
-  <h3>Showing {{count}} Quotes.</h3>
-  <table>
-    <thead>
-      <tr>
-        <th v-for="key in columns"
-          @click="sortBy(key)"
-          :class="{ active: sortKey == key }">
-          {{ key | capitalize }}
-          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
-        </th>
-      </tr>
-
-    </thead>
-    <tbody>
-      <tr v-for="entry in filteredData">
-        <td v-for="key in columns">
-          {{entry[key]}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-       </div>
+        </thead>
+        <tbody>
+          <tr v-for="entry in filteredData">
+            <td v-for="key in columns">
+              {{entry[key]}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div v-else>
+        <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
+      </div>
+</div>
 </script>
 
 
 <div id="demo">
 
     <form id="search">
-      <label>Search for a keyword:</label><br>
+      <label>Search for a keyword</label><br>
     <input id="searchInput" name="query" v-model="searchQuery" >
   </form>
   <demo-grid
@@ -54,13 +62,13 @@
 
 </div>
 <script type="text/javascript" src=data.js></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 <script type="text/javascript" src=main.vue></script>
 <script type="text/javascript">
   function FocusOnInput()
 {
-     document.getElementById("searchInput").focus();
+      $("#searchInput").focus();
 }
+$('label').click(function(){FocusOnInput();});
 </script>
 </body>
 </html>

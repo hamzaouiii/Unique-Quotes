@@ -11,6 +11,7 @@ body
   color: #444;
   text-align: center;
 }
+label{cursor: pointer; transition: 0.5s;}
 h3,label
 {
   font-family: 'segoe UI';
@@ -40,27 +41,25 @@ form
 }
 input
 {
+  border: 0px solid;
   border-bottom-width: 3px; 
   border-color: deepskyblue;
-  border-top:none; 
-  border-left:none; 
-  border-right: none; 
-  width: 700px;
-  height: 80px;
+  width: 320px;
+  height: 0px;
   font-weight: lighter;
   font-family: 'segoe UI';
   font-size: 30px;
-  padding: 10px 40px;
+  
   transition: 0.8s;
   overflow-x: hidden;
 }
 input:focus
 {
-  width: 1000px;
+  width: 90%;
   border: 3px solid deepskyblue;
   overflow: hidden;
-
-
+  height: 80px;
+  padding: 10px 40px;
 }
 
 table
@@ -84,14 +83,13 @@ max-width: 500px;
   
 
 }
-
+tr{transition: 0.7s;}
 tr:nth-child(odd){background-color: #f2f2f2}
 tr:hover
 {
   cursor: pointer;
-  background-color:  lightblue;
+  background-color: tomato;
   color: white;
-  border: none;
 }
 th.active {
   color: #fff;
@@ -120,4 +118,9 @@ th.active .arrow {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
+}
+.none { display: none; }
+.tomato
+{
+  color: tomato;
 }

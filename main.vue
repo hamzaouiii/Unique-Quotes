@@ -16,30 +16,24 @@ Vue.component('demo-grid', {
           })
           return {
             sortKey: '',
-            sortOrders: sortOrders 
-          }
-        },
-        watch:
-        {
-          searchQuery: function()
-          {
-            this.msg = "changed"
+            sortOrders: sortOrders,
+            details: true,
+            flag: true,
           }
         },
         computed: 
-        {
-          
+        {  
           filteredData: function () 
           {
-            var sortKey = this.sortKey
+            var sortKey = this.sortKey;
             var filterKey = this.filterKey && this.filterKey.toLowerCase()
             var order = this.sortOrders[sortKey] || 1
             var data = this.data
             if (filterKey) 
             {
               data = data.filter(function (row) {
-                return Object.keys(row).some(function (key) {
-                  return String(row[key]).toLowerCase().indexOf(filterKey) > -1
+              return Object.keys(row).some(function (key) {
+              return String(row[key]).toLowerCase().indexOf(filterKey) > -1
                 })
               })
             }
@@ -56,8 +50,20 @@ Vue.component('demo-grid', {
           
           count: function()
           {
-            return this.filteredData.length;
-          } 
+          if ( this.filteredData.length == this.data.length )    {  this.details = true;   return "all";}
+
+           else  {this.details = false;return this.filteredData.length;}
+          },
+          searchQuery: function()
+          {
+            return this.filterKey;
+          },
+          searchFilled: function()
+          {
+            if (this.filterKey==='') {return true}
+              else return false;
+          }
+         
         },
         filters: 
         {
@@ -72,17 +78,17 @@ Vue.component('demo-grid', {
           {
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
-            console
           }
         }
       })
-// bootstrap the demo
+ 
 var demo = new Vue({
   el: '#demo',
   data: 
   {
     searchQuery: '',
     gridColumns: ['id','author', 'text'],
+    //quotes is the name of the JSON array from the data.js file 
     gridData: quotes 
   }
 })
