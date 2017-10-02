@@ -4,6 +4,11 @@
   margin: 0px;
   padding: 0px;
 }
+h1,h2,h3,h4,h5,h6,label,p
+{
+  font-family: 'segoe UI';
+  font-weight: lighter;
+}
 body 
 {
   font-family: Helvetica Neue, Arial, sans-serif;
@@ -14,24 +19,20 @@ body
 label{cursor: pointer; transition: 0.5s;}
 h3,label
 {
-  font-family: 'segoe UI';
   font-size: 32px;
-  font-weight: lighter;
   margin-bottom: 100px;
 }
 body >img
 {
   width: 80px;
   height: 80px;
-  margin: 50px auto -40px auto;
+  margin: 50px auto -30px auto;
 }
 body > h1
 {
 
 text-align: center;
-font-family: 'segoe UI';
 font-size: 65px;
-font-weight: lighter;
 }
 form
 {
@@ -39,7 +40,7 @@ form
   font-size: 20px;
  text-align: center;
 }
-input
+input[type='text']
 {
   border: 0px solid;
   border-bottom-width: 3px; 
@@ -53,7 +54,7 @@ input
   transition: 0.8s;
   overflow-x: hidden;
 }
-input:focus
+input[type='text']:focus
 {
   width: 90%;
   border: 3px solid deepskyblue;
@@ -65,7 +66,6 @@ input:focus
 table
 {
   margin: 0 auto 50px auto;
-  border: 5px solid deepskyblue;
   border-collapse: collapse;
   width: 90%;
   
@@ -88,7 +88,7 @@ tr:nth-child(odd){background-color: #f2f2f2}
 tr:hover
 {
   cursor: pointer;
-  background-color: tomato;
+  background-color: #222;
   color: white;
 }
 th.active {
@@ -123,4 +123,43 @@ th.active .arrow {
 .tomato
 {
   color: tomato;
+}
+h4
+{
+  font-size: 20px;
+}
+.random
+{
+  border: 2px solid #222;
+  display: inline-block;
+  margin: 10 auto;
+  max-width: 90%;
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 55px;
+}
+.random:hover
+{
+  background-color: #222;
+  color: white;
+}
+.random h3
+{
+  margin: 20px;
+  font-weight: bold;
+}
+.random p
+{
+  font-size: 25px;
+  margin: 20px;
+
+}
+
+.qqq
+{
+  font-size: 40px;
+  font-family: "Consolas";
+  line-height: 1;
+
 }

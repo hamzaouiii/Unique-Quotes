@@ -14,11 +14,15 @@
 <!-- template of the rendered content -->
 <script type="text/x-template" id="grid-template">
  <div v-if="searchFilled">
-  <h3>Browse more than 5000 Quotes</h3>
+  <h4>Random Quote</h4>
+  <div @click="randomQuote()" class="random">
+  <h3 >{{randomQuote.author}} </h3>
+  <p><span class="qqq">&ldquo;</span>{{randomQuote.text}}<span class="qqq">&rdquo;</span></p>
+  </div>
  </div>
  <div v-else>
       <div v-if="count">
-      <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to <span class="tomato">{{searchQuery}}</span></span>.</h3>
+      <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
       <table>
         <thead>
           <tr>
@@ -50,9 +54,9 @@
 
 <div id="demo">
 
-    <form id="search">
+    <form id="search" onsubmit="return stopSub()">
       <label>Search for a keyword</label><br>
-    <input id="searchInput" name="query" v-model="searchQuery" >
+    <input type="text" id="searchInput" name="query" v-model="searchQuery" >
   </form>
   <demo-grid
     :data="gridData"
@@ -65,10 +69,11 @@
 <script type="text/javascript" src=main.vue></script>
 <script type="text/javascript">
   function FocusOnInput()
-{
-      $("#searchInput").focus();
-}
-$('label').click(function(){FocusOnInput();});
+    { $("#searchInput").focus();}
+    $('label').click(function(){FocusOnInput()});
+//stopping the form from subbmitting on pressing enter
+  function stopSub() { return false; }
+
 </script>
 </body>
 </html>

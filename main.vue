@@ -62,7 +62,18 @@ Vue.component('demo-grid', {
           {
             if (this.filterKey==='') {return true}
               else return false;
+          },
+          randomQuote: function()
+          {
+            var min=1;
+            var max = this.data.length;
+            var randomId = Math.floor(Math.random() * (max-min +1)) + min;
+            console.log(randomId);
+            quote = this.data[randomId];
+            return quote;
+
           }
+
          
         },
         filters: 
