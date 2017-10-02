@@ -19,34 +19,15 @@ Vue.component('demo-grid', {
             sortOrders: sortOrders,
             details: true,
             flag: true,
-            quote: this.changeQuote()
+            quote: this.changeQuote(),
+            show: true
           }
         },
         computed: 
         {  
           filteredData: function () 
           {
-            var sortKey = this.sortKey;
-            var filterKey = this.filterKey && this.filterKey.toLowerCase()
-            var order = this.sortOrders[sortKey] || 1
-            var data = this.data
-            if (filterKey) 
-            {
-              data = data.filter(function (row) {
-              return Object.keys(row).some(function (key) {
-              return String(row[key]).toLowerCase().indexOf(filterKey) > -1
-                })
-              })
-            }
-            if (sortKey) 
-            {
-              data = data.slice().sort(function (a, b) {
-                a = a[sortKey]
-                b = b[sortKey]
-                return (a === b ? 0 : a > b ? 1 : -1) * order
-              })
-            }
-            return data
+            return this.getResult() ;
           },
           
           count: function()
@@ -91,7 +72,32 @@ Vue.component('demo-grid', {
             var randomId = Math.floor(Math.random() * (max-min +1)) + min;
             var changedQuote = this.data[randomId];
             this.quote = changedQuote;
+            this.show != this.show;
             return changedQuote;
+          },
+          getResult:  function() 
+            {
+              var sortKey = this.sortKey;
+              var filterKey = this.filterKey && this.filterKey.toLowerCase()
+              var order = this.sortOrders[sortKey] || 1
+              var data = this.data
+              if (filterKey) 
+              {
+                data = data.filter(function (row) {
+                return Object.keys(row).some(function (key) {
+                return String(row[key]).toLowerCase().indexOf(filterKey) > -1
+                  })
+                })
+              }
+              if (sortKey) 
+              {
+                data = data.slice().sort(function (a, b) {
+                  a = a[sortKey]
+                  b = b[sortKey]
+                  return (a === b ? 0 : a > b ? 1 : -1) * order
+                })
+              }
+              return data
           }
         }
       })
