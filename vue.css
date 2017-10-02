@@ -26,7 +26,7 @@ body >img
 {
   width: 80px;
   height: 80px;
-  margin: 50px auto -30px auto;
+  margin: 50px auto 0px auto;
 }
 body > h1
 {
@@ -128,22 +128,21 @@ h4
 {
   font-size: 20px;
 }
+
 .random
 {
   border: 2px solid #222;
-  display: inline-block;
-  margin: 10 auto;
-  max-width: 90%;
+  display:  block;
+  max-width: 60%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   padding: 20px;
-  transition: 0.3s;
+  transition: 1s;
   cursor: pointer;
   margin-bottom: 55px;
 }
-.random:hover
-{
-  background-color: #222;
-  color: white;
-}
+
 .random h3
 {
   margin: 20px;
@@ -161,5 +160,26 @@ h4
   font-size: 40px;
   font-family: "Consolas";
   line-height: 1;
-
 }
+
+.random-quote button
+{
+  position: relative;
+  padding: 20px 60px;
+  border: 2px solid #222;
+ margin: 20px;
+  font-family: 'segoe UI';
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+   background-color: #222;
+  color: white;
+}
+.random-quote button:hover
+{
+ 
+ background-color: white;
+ color: #222;
+}
+/*
+@media screen and (min-width: )*/

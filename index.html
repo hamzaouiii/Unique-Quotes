@@ -3,77 +3,77 @@
   <title>Unique Quotes</title>
   <meta charset="utf-8">
   <script src="vue.vue"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+
   <link rel="icon" type="image/png" href="quote.png">
   <link rel="stylesheet" type="text/css" href="vue.css">
   <script src="jquery.min.js"></script>
 
 </head>
 <body onload="FocusOnInput()">
-<img src="quote.png">
-<h1>Unique Quotes</h1>
-<!-- template of the rendered content -->
-<script type="text/x-template" id="grid-template">
- <div v-if="searchFilled">
-  <h4>Random Quote</h4>
-  <div @click="randomQuote()" class="random">
-  <h3 >{{randomQuote.author}} </h3>
-  <p><span class="qqq">&ldquo;</span>{{randomQuote.text}}<span class="qqq">&rdquo;</span></p>
-  </div>
- </div>
- <div v-else>
-      <div v-if="count">
-      <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
-      <table>
-        <thead>
-          <tr>
-            <th v-for="key in columns"
-              @click="sortBy(key)"
-              :class="{ active: sortKey == key }">
-              {{ key | capitalize }}
-              <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-              </span>
-            </th>
-          </tr>
+      <img src="quote.png">
+      <h1>Unique Quotes</h1>
+            <!-- template of the rendered content -->
+      <script type="text/x-template" id="grid-template">
 
-        </thead>
-        <tbody>
-          <tr v-for="entry in filteredData">
-            <td v-for="key in columns">
-              {{entry[key]}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="random-quote" v-if="searchFilled">
+          <h4>Random Quote</h4>
+          <transition name="fade">
+            <div  class="random">
+              <h3 >{{quote.author}} </h3>
+              <p><span class="qqq">&ldquo;</span>{{quote.text}}<span class="qqq">&rdquo;</span></p>
+            </div>
+          </transition>
+          <button v-on:click="changeQuote">Change Quote</button>
+        </div>
+
+        <div v-else>
+          <div v-if="count">
+            <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
+            <table>
+              <thead>
+                <tr>
+                 <th v-for="key in columns"
+                    @click="sortBy(key)"
+                    :class="{ active: sortKey == key }">
+                    {{ key | capitalize }}
+                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="entry in filteredData">
+                  <td v-for="key in columns">
+                      {{entry[key]}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div v-else>
+              <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
+          </div>
+        </div>
+      </script>
+      <div id="demo">
+          <form id="search" onsubmit="return stopSub()">
+            <label>Search for a keyword</label><br>
+            <input type="text" id="searchInput" name="query" v-model="searchQuery" >
+          </form>
+          <demo-grid
+            :data="gridData"
+            :columns="gridColumns"
+            :filter-key="searchQuery">
+          </demo-grid>
       </div>
-      <div v-else>
-        <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
-      </div>
-</div>
-</script>
-
-
-<div id="demo">
-
-    <form id="search" onsubmit="return stopSub()">
-      <label>Search for a keyword</label><br>
-    <input type="text" id="searchInput" name="query" v-model="searchQuery" >
-  </form>
-  <demo-grid
-    :data="gridData"
-    :columns="gridColumns"
-    :filter-key="searchQuery">
-  </demo-grid>
-
-</div>
-<script type="text/javascript" src=data.js></script>
-<script type="text/javascript" src=main.vue></script>
-<script type="text/javascript">
-  function FocusOnInput()
-    { $("#searchInput").focus();}
-    $('label').click(function(){FocusOnInput()});
-//stopping the form from subbmitting on pressing enter
-  function stopSub() { return false; }
-
-</script>
+      <script type="text/javascript" src=data.js></script>
+      <script type="text/javascript" src=main.vue></script>
+      <script type="text/javascript">
+              function FocusOnInput()
+                { $("#searchInput").focus();}
+                $('label').click(function(){FocusOnInput()});
+            //stopping the form from subbmitting on pressing enter
+              function stopSub() { return false; }
+      </script>
 </body>
 </html>

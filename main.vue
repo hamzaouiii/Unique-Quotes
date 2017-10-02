@@ -19,6 +19,7 @@ Vue.component('demo-grid', {
             sortOrders: sortOrders,
             details: true,
             flag: true,
+            quote: this.changeQuote()
           }
         },
         computed: 
@@ -65,16 +66,8 @@ Vue.component('demo-grid', {
           },
           randomQuote: function()
           {
-            var min=1;
-            var max = this.data.length;
-            var randomId = Math.floor(Math.random() * (max-min +1)) + min;
-            console.log(randomId);
-            quote = this.data[randomId];
-            return quote;
-
+             changeQuote();
           }
-
-         
         },
         filters: 
         {
@@ -89,6 +82,16 @@ Vue.component('demo-grid', {
           {
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
+          }
+          ,
+          changeQuote: function()
+          {
+            var min=1;
+            var max = this.data.length;
+            var randomId = Math.floor(Math.random() * (max-min +1)) + min;
+            var changedQuote = this.data[randomId];
+            this.quote = changedQuote;
+            return changedQuote;
           }
         }
       })
