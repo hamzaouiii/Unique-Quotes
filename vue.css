@@ -133,12 +133,11 @@ h4
 {
   border: 2px solid #222;
   display:  block;
-  max-width: 60%;
+  width: 60%;
   left: 0;
   right: 0;
   margin: 0 auto;
   padding: 20px;
-  transition: 1s;
   cursor: pointer;
   margin-bottom: 55px;
 }
@@ -167,19 +166,33 @@ h4
   position: relative;
   padding: 20px 60px;
   border: 2px solid #222;
- margin: 20px;
+  margin: 20px;
   font-family: 'segoe UI';
   font-size: 18px;
   cursor: pointer;
   transition: 0.5s;
-   background-color: #222;
+  background-color: #222;
   color: white;
 }
 .random-quote button:hover
 {
- 
  background-color: white;
  color: #222;
 }
-/*
-@media screen and (min-width: )*/
+
+@media  screen and (max-width: 500px)
+{
+  body > h1 {font-size: 35px;}
+  .random {  width: 90%; padding: 5px; margin-bottom: 20px; }
+  .random h3{  font-size: 18px;}
+  .random p{  font-size: 18px;}
+  .random-quote button{margin : 0px; width: 90%;}
+  .random-quote button:hover{  background-color: #222;  color: white;}
+  .qqq {font-size: 25px;}
+  body >img
+{
+  width: 40px;
+  height: 40px;
+}
+
+}
