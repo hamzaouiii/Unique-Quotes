@@ -68,20 +68,21 @@ input[type='search']:focus
   margin: 5px;
   border-radius: 10px;
   display: flex;
-  position: relative;
 }
 .list-quote .writer
 {
-  border-right: 1px soid grey; 
+  border-right: 1px solid grey; 
   min-width: 250px;
   padding: 20px;
   background-color: #4169E1;
   color: white;
   border-top-left-radius: 10px; 
   border-bottom-left-radius: 10px; 
+  flex: 0;
 }
 .list-quote .quote-text
 {
+  flex: 1;
   padding: 20px;
   text-align: left;
   font-size: 20px;

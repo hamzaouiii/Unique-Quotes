@@ -31,8 +31,8 @@
           <div v-if="count">
             <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
               <div class="list-quote" v-for="entry in filteredData">
-                  <h4 class="writer">{{entry.author}}</h4>
-                  <p class="quote-text">{{entry.text}}</p>
+                  <h4 class="writer col">{{entry.author}}</h4>
+                  <p class="quote-text col">{{entry.text}}</p>
               </div>
                
           </div>
@@ -58,6 +58,17 @@
               function FocusOnInput()
                 { $("#searchInput").focus();}
                 $('label').click(function(){FocusOnInput()});
+
+
+var maxHeight = 0;
+
+$(".col").each(function(){
+   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+});
+
+$("col.").height(maxHeight);
+
+
               
       </script>
 </body>
