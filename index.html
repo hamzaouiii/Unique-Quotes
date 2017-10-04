@@ -20,19 +20,6 @@
   <script src="jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
   <style type="text/css">
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 </style>
 </head>
 <body onload="FocusOnInput()">
@@ -41,12 +28,12 @@
             <!-- template of the rendered content -->
       <script type="text/x-template" id="grid-template">
 
-        <div class="random-quote" v-if="searchFilled">
+        <div class="random-quote"  v-if="searchFilled">
           <h4>Random Quote</h4>
-          <transition name="fade">
-            <div v-if="show" class="random">
+          <transition name="disappear"  leave-active-class="disappear">
+            <div :key="quote.text" v-if="show" class="random">
               <h3 >{{quote.author}} </h3>
-              <p><span class="qqq">&ldquo;</span>{{quote.text}}<span class="qqq">&rdquo;</span></p>
+              <p ><span class="qqq">&ldquo;</span>{{quote.text}}<span class="qqq">&rdquo;</span></p>
             </div>
           </transition>
           <button v-on:click="changeQuote">Change Quote</button><br><br>
@@ -83,7 +70,7 @@
       <div id="demo">
           <form id="search" v-on:submit.prevent="onSubmit">
             <label>Search for a keyword</label><br>
-            <input type="search" id="searchInput" name="query" v-model.lazy="searchQuery" >
+            <input type="search" id="searchInput" name="query" v-model="searchQuery" >
           </form>
           <demo-grid
             :data="gridData"
