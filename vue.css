@@ -194,7 +194,7 @@ h4
     .random {  width: 90%; padding: 5px; margin: 20px auto 20px auto; }
     .random h3{  font-size: 23px;}
     .random p{  font-size: 23px;}
-    .random-quote button{margin : 20px auto 50px auto   ; width: 90%;}
+    .random-quote button{margin : 20px auto 50px auto   ; width: 90%; bottom: 10px ;}
     .random-quote button:focus{ background-color: white;
     color: #222;}
     .qqq {font-size: 25px;}
