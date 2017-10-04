@@ -1,14 +1,12 @@
 Vue.component('demo-grid', {
         template: '#grid-template',
-        props: 
-        {
+        props: {
           data: Array,
           columns: Array,
           filterKey: String,
           searching: Number
         },
-        data: function () 
-        {
+        data: function () {
           var sortOrders = {}
           this.columns.forEach(function (key) 
           {
@@ -25,48 +23,37 @@ Vue.component('demo-grid', {
         },
         computed: 
         {  
-          filteredData: function () 
-          {
+          filteredData: function ()  {
             return this.getResult() ;
           },
           
-          count: function()
-          {
+          count: function()  {
           if ( this.filteredData.length == this.data.length )    {  this.details = true;   return "all";}
-
            else  {this.details = false;return this.filteredData.length;}
           },
-          searchQuery: function()
-          {
+          searchQuery: function(){
             return this.filterKey;
           },
-          searchFilled: function()
-          {
+          searchFilled: function(){
             if (this.filterKey==='') {return true}
               else return false;
           },
-          randomQuote: function()
-          {
+          randomQuote: function() {
              changeQuote();
           }
         },
-        filters: 
-        {
-          capitalize: function (str) 
-          {
+        filters: {
+          capitalize: function (str)  {
             return str.charAt(0).toUpperCase() + str.slice(1)
           }
         },
-        methods: 
-        {
-          sortBy: function (key) 
-          {
+        methods: {
+          sortBy: function (key) {
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
           }
           ,
-          changeQuote: function()
-          {
+          changeQuote: function() {
             var min=1;
             var max = this.data.length;
             var randomId = Math.floor(Math.random() * (max-min +1)) + min;
@@ -75,8 +62,7 @@ Vue.component('demo-grid', {
             this.show != this.show;
             return changedQuote;
           },
-          getResult:  function() 
-            {
+          getResult:  function()  {
               var sortKey = this.sortKey;
               var filterKey = this.filterKey && this.filterKey.toLowerCase()
               var order = this.sortOrders[sortKey] || 1
@@ -107,7 +93,7 @@ var demo = new Vue({
   el: '#demo',
   data: 
   {
-    searchQuery: '',
+    searchQuery: 'lord',
     gridColumns: ['id','author', 'text'],
     //quotes is the name of the JSON array from the data.js file 
     gridData: quotes 

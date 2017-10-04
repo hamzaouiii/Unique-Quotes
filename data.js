@@ -1306,7 +1306,6 @@ var quotes = [{"author":"Dr. Seuss","text":"Don't cry because it's over, smile b
 {"author":"Stephen Hawking","text":"We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special.  ","id":1441},
 {"author":"Chuck Palahniuk","text":"You realize that our mistrust of the future makes it hard to give up the past.  ","id":1442},
 {"author":"Shel Silverstein","text":"If you are a dreamer come in","id":1443},
-{"author":"Victor Hugo","text":"Music expresses that which cannot be said and on which it is impossible to be silent.  ","id":1444},
 {"author":"Haruki Murakami","text":"I dream. Sometimes I think that's the only right thing to do.  ","id":1445},
 {"author":"Jorge Luis Borges","text":"I cannot sleep unless I am surrounded by books.  ","id":1447},
 {"author":"Ernest Hemingway","text":"All you have to do is write one true sentence. Write the truest sentence that you know.  ","id":1448},

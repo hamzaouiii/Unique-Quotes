@@ -1,66 +1,40 @@
 <html>
 <head>
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102248020-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)};
-  gtag('js', new Date());
-
-  gtag('config', 'UA-102248020-2');
-</script>
-
   <title>Unique Quotes</title>
   <meta charset="utf-8">
-  <script src="vue.vue"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
 
   <link rel="icon" type="image/png" href="quote.png">
   <link rel="stylesheet" type="text/css" href="vue.css">
+  <!-- Vuejs and Jquery -->
+  <script src="vue.min.vue"></script>
   <script src="jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-  <style type="text/css">
-</style>
 </head>
 <body onload="FocusOnInput()">
-      <img src="quote.png">
-      <h1>Unique Quotes</h1>
+      
+<img src="quote.png">     
+<h1>Unique Quotes</h1>
             <!-- template of the rendered content -->
       <script type="text/x-template" id="grid-template">
 
         <div class="random-quote"  v-if="searchFilled">
           <h4>Random Quote</h4>
           <transition name="disappear"  leave-active-class="disappear">
-            <div :key="quote.text" v-if="show" class="random">
+            <div :key="quote.text" v-if="show" v-on:click="changeQuote" class="random">
               <h3 >{{quote.author}} </h3>
               <p ><span class="qqq">&ldquo;</span>{{quote.text}}<span class="qqq">&rdquo;</span></p>
             </div>
           </transition>
-          <button v-on:click="changeQuote">Change Quote</button><br><br>
         </div>
 
         <div v-else>
           <div v-if="count">
             <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
-            <table>
-              <thead>
-                <tr>
-                 <th v-for="key in columns"
-                    @click="sortBy(key)"
-                    :class="{ active: sortKey == key }">
-                    {{ key | capitalize }}
-                    <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="entry in filteredData">
-                  <td v-for="key in columns">
-                      {{entry[key]}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+              <div class="list-quote" v-for="entry in filteredData">
+                  <h4 class="writer">{{entry.author}}</h4>
+                  <p class="quote-text">{{entry.text}}</p>
+              </div>
+               
           </div>
           <div v-else>
               <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
@@ -84,7 +58,6 @@
               function FocusOnInput()
                 { $("#searchInput").focus();}
                 $('label').click(function(){FocusOnInput()});
-            //stopping the form from subbmitting on pressing enter
               
       </script>
 </body>

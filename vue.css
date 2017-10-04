@@ -15,6 +15,8 @@ body
   font-size: 14px;
   color: #444;
   text-align: center;
+  position: relative;
+  height: 100%;
 }
 label{cursor: pointer; transition: 0.5s;}
 h3,label
@@ -60,63 +62,36 @@ input[type='search']:focus
   height: 80px;
   padding: 10px 40px;
 }
-
-table
+.list-quote
 {
-  margin: 0 auto 50px auto;
-  border-collapse: collapse;
-  max-width: 90%;
-  
+  border: 1px solid lightgrey;
+  margin: 5px;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
 }
-th{
+.list-quote .writer
+{
+  border-right: 1px soid grey; 
+  min-width: 250px;
+  padding: 20px;
   background-color: #4169E1;
   color: white;
-  border: none;
+  border-top-left-radius: 10px; 
+  border-bottom-left-radius: 10px; 
 }
-th, td {
-    text-align: left;
-  padding: 10px 20px;
-  border-collapse: collapse;
-max-width: 500px;
-  
-
-}
-tr{transition: 0.7s;}
-tr:nth-child(odd){background-color: #f2f2f2}
-tr:hover
+.list-quote .quote-text
 {
-  cursor: pointer;
-  background-color: #222;
-  color: white;
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
 }
-th.active {
-  color: #fff;
-}
-
-th.active .arrow {
-  opacity: 1;
-}
-
-.arrow {
+.list-quote .writer, .list-quote .quote-text
+{
   display: inline-block;
-  vertical-align: middle;
-  width: 0;
-  height: 0;
-  margin-left: 5px;
-  opacity: 0.66;
+  clear: both;
 }
 
-.arrow.asc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid #fff;
-}
-
-.arrow.dsc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid #fff;
-}
 .none { display: none; }
 .tomato
 {
@@ -127,54 +102,43 @@ h4
   font-size: 20px;
 }
 
+.random:hover + .qqq{color: #4169E1;}
 .random
 {
-  display:  block;
+
+transition: 1s;  position: absolute;
+  cursor: pointer;
+  width: 60%;
   background-color: #4169E1;
   color: white;
+  border: 2px solid #4169E1;
   border-radius: 20px 100px 20px 100px; 
-  width: 60%;
   left: 0;
-  right: 0;
-  margin: 0 auto;
+  right:  0;
+  margin: 0 auto 55px auto;
   padding: 20px;
-  cursor: pointer;
-  margin-bottom: 55px;
   animation: appear 1s;
-  position: absolute;
 }
+.random h3{  margin: 20px; font-weight: bold;}
+.random p{  font-size: 25px;  margin: 20px;}
+.qqq{  font-size: 40px;  font-family: "Consolas"; line-height: 1;}
 
-.random h3
-{
-  margin: 20px;
-  font-weight: bold;
-}
-.random p
-{
-  font-size: 25px;
-  margin: 20px;
-
-}
-
-.qqq
-{
-  font-size: 40px;
-  font-family: "Consolas";
-  line-height: 1;
-}
-
+.random-quote {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: inherit;
+  display: block;
+  }
 .random-quote button
 {
-  position: absolute;
+  position: relative;
   padding: 20px 60px;
   border: 2px solid #4169E1;
   font-family: 'segoe UI';
   font-size: 18px;
   cursor: pointer;
   transition: 0.5s;
-  bottom: 50px;
-  left: 0px;
-  right: 0px;
   margin: auto;
   border-radius: 10px; 
   background-color: white;
@@ -184,19 +148,19 @@ h4
  background-color: #4169E1;
  color: white;
 }
-@keyframes appear{0%{opacity: 0; left: -1200px;}100%{opacity: 1; left: 00px;}}
-@keyframes disappear{0%{opacity: 1; right: 0;}100%{opacity: 0; right: -1200px;}}
+@keyframes appear{0%{opacity: 0;  }100%{opacity: 1; }}
 
 /*mobile*/
 @media  screen and (max-width: 500px)
 {
     body > h1 {font-size: 35px;}
-    .random {  width: 90%; padding: 5px; margin: 20px auto 20px auto; }
+    .random {  width: 90%; padding: 5px; margin: 20px auto 20px auto; position: absolute;}
     .random h3{  font-size: 23px;}
     .random p{  font-size: 23px;}
-    .random-quote button{margin : 20px auto 50px auto   ; width: 90%; bottom: 10px ;}
-    .random-quote button:focus{ background-color: white;
-    color: #222;}
+    .random-quote button{margin : 20px auto 50px auto   ; width: 90%;position: absolute;}
+    .random-quote button:focus{ background-color: white;   color: #222;}
+    .list-quote .writer { font-size: 15px; min-width: 100px; max-width: 100px; padding-top:50px;  position: relative;  }
+
     .qqq {font-size: 25px;}
     body >img
   {
