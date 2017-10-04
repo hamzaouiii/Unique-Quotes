@@ -81,6 +81,7 @@ Vue.component('demo-grid', {
               var filterKey = this.filterKey && this.filterKey.toLowerCase()
               var order = this.sortOrders[sortKey] || 1
               var data = this.data
+              console.log(filterKey);
               if (filterKey) 
               {
                 data = data.filter(function (row) {

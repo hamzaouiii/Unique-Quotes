@@ -1,5 +1,15 @@
 <html>
 <head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102248020-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-102248020-2');
+</script>
+
   <title>Unique Quotes</title>
   <meta charset="utf-8">
   <script src="vue.vue"></script>
@@ -71,9 +81,9 @@
         </div>
       </script>
       <div id="demo">
-          <form id="search" onsubmit="return stopSub()">
+          <form id="search" v-on:submit.prevent="onSubmit">
             <label>Search for a keyword</label><br>
-            <input type="text" id="searchInput" name="query" v-model="searchQuery" >
+            <input type="search" id="searchInput" name="query" v-model.lazy="searchQuery" >
           </form>
           <demo-grid
             :data="gridData"
@@ -88,7 +98,7 @@
                 { $("#searchInput").focus();}
                 $('label').click(function(){FocusOnInput()});
             //stopping the form from subbmitting on pressing enter
-              function stopSub() { return false; }
+              
       </script>
 </body>
 </html>

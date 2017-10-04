@@ -38,7 +38,7 @@ form
   font-size: 20px;
  text-align: center;
 }
-input[type='text']
+input[type='search']
 {
   border: 0px solid;
   border-bottom-width: 3px; 
@@ -52,7 +52,7 @@ input[type='text']
   transition: 0.8s;
   overflow-x: hidden;
 }
-input[type='text']:focus
+input[type='search']:focus
 {
   width: 90%;
   border: 3px solid #4169E1;
@@ -172,6 +172,7 @@ h4
   cursor: pointer;
   transition: 0.5s;
   border-radius: 10px; 
+  background-color: white;
 }
 .random-quote button:hover
 {
