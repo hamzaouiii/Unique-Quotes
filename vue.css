@@ -62,35 +62,75 @@ input[type='search']:focus
   height: 80px;
   padding: 10px 40px;
 }
-.list-quote
+/*.list-quote
 {
   border: 1px solid lightgrey;
-  margin: 5px;
+  margin: 20px;
+  width: 40%;
   border-radius: 10px;
-  display: flex;
+  position: relative;
+  display: inline-block;
 }
+
+
 .list-quote .writer
 {
-  border-right: 1px solid grey; 
+  color: #4169E1;
   min-width: 250px;
   padding: 20px;
-  background-color: #4169E1;
-  color: white;
-  border-top-left-radius: 10px; 
-  border-bottom-left-radius: 10px; 
-  flex: 0;
 }
 .list-quote .quote-text
 {
-  flex: 1;
   padding: 20px;
   text-align: left;
   font-size: 20px;
+  background-color: white;
 }
 .list-quote .writer, .list-quote .quote-text
 {
   display: inline-block;
   clear: both;
+}*/
+
+
+
+#columns {
+  column-width: 500px;
+  column-gap: 15px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+div#columns .list-quote {
+  background: #fefefe;
+  border: 1px solid darkgrey;
+  margin: 0 2px 15px;
+  padding: 15px;
+  padding-bottom: 10px;
+  transition: opacity .4s ease-in-out;
+  display: inline-block;
+  column-break-inside: avoid;
+  width: 100%; 
+  cursor: pointer;
+  border-radius: 10px; 
+}
+.writer h4
+{
+  font-size: 20px;
+  text-align: right;
+  padding: 20px;
+}
+.list-quote:hover  .writer { color :#4169E1;  }
+.quote-text {font-size: 25px; }
+
+div#columns:hover figure:not(:hover) {
+  opacity: 0.2;
+}
+
+@media screen and (max-width: 750px) { 
+  #columns { column-gap: 0px; }
+  #columns figure { width: 100%; }
 }
 
 .none { display: none; }

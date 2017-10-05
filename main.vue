@@ -24,6 +24,7 @@ Vue.component('demo-grid', {
         computed: 
         {  
           filteredData: function ()  {
+            // this.slowdown();
             return this.getResult() ;
           },
           
@@ -47,7 +48,8 @@ Vue.component('demo-grid', {
             return str.charAt(0).toUpperCase() + str.slice(1)
           }
         },
-        methods: {
+        methods: 
+        {
           sortBy: function (key) {
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
@@ -59,7 +61,6 @@ Vue.component('demo-grid', {
             var randomId = Math.floor(Math.random() * (max-min +1)) + min;
             var changedQuote = this.data[randomId];
             this.quote = changedQuote;
-            this.show != this.show;
             return changedQuote;
           },
           getResult:  function()  {
@@ -67,24 +68,24 @@ Vue.component('demo-grid', {
               var filterKey = this.filterKey && this.filterKey.toLowerCase()
               var order = this.sortOrders[sortKey] || 1
               var data = this.data
-              console.log(filterKey);
-              if (filterKey) 
-              {
-                data = data.filter(function (row) {
-                return Object.keys(row).some(function (key) {
-                return String(row[key]).toLowerCase().indexOf(filterKey) > -1
-                  })
+            console.log(filterKey);
+            if (filterKey) 
+            {
+              data = data.filter(function (row) {
+              return Object.keys(row).some(function (key) {
+              return String(row[key]).toLowerCase().indexOf(filterKey) > -1
                 })
-              }
-              if (sortKey) 
-              {
-                data = data.slice().sort(function (a, b) {
-                  a = a[sortKey]
-                  b = b[sortKey]
-                  return (a === b ? 0 : a > b ? 1 : -1) * order
-                })
-              }
-              return data
+              })
+            }
+            if (sortKey) 
+            {
+              data = data.slice().sort(function (a, b) {
+                a = a[sortKey]
+                b = b[sortKey]
+                return (a === b ? 0 : a > b ? 1 : -1) * order
+               })
+             }
+            return data
           }
         }
       })
@@ -95,7 +96,7 @@ var demo = new Vue({
   {
     searchQuery: '',
     gridColumns: ['id','author', 'text'],
-    //quotes is the name of the JSON array from the data.js file 
-    gridData: quotes 
+    //_quotes is the name of the JSON array from the data.js file 
+    gridData: _quotes 
   }
 })

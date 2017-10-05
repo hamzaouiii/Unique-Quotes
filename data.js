@@ -1,4 +1,4 @@
-var quotes = [{"author":"Dr. Seuss","text":"Don't cry because it's over, smile because it happened.  ","id":1},
+var _quotes = [{"author":"Dr. Seuss","text":"Don't cry because it's over, smile because it happened.  ","id":1},
 {"author":"Marilyn Monroe","text":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.  ","id":2},
 {"author":"Oscar Wilde","text":"Be yourself; everyone else is already taken.  ","id":3},
 {"author":"Albert Einstein","text":"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.  ","id":4},
@@ -714,7 +714,6 @@ var quotes = [{"author":"Dr. Seuss","text":"Don't cry because it's over, smile b
 {"author":"Chuck Palahniuk","text":"I don't want to die without any scars.  ","id":796},
 {"author":"Paulo Coelho","text":"The simple things are also the most extraordinary things, and only the wise can see them.  ","id":797},
 {"author":"Marilyn Monroe","text":"Who said nights were for sleep?  ","id":798},
-{"author":"E.E. Cummings","text":"To be nobody but ","id":799},
 {"author":"Daniel Pennac","text":"Reader's Bill of Rights","id":800},
 {"author":"Suzanne Collins","text":"I can feel Peeta press his forehead into my temple and he asks, 'So now that you've got me, what are you going to do with me?' I turn into him. 'Put you somewhere you can't get hurt.  ","id":801},
 {"author":"Oscar Wilde","text":"I never travel without my diary. One should always have something sensational to read in the train.  ","id":802},

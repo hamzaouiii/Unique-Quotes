@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="quote.png">
   <link rel="stylesheet" type="text/css" href="vue.css">
   <!-- Vuejs and Jquery -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/debounce.js"></script>
   <script src="vue.min.vue"></script>
   <script src="jquery.min.js"></script>
 </head>
@@ -30,21 +31,22 @@
         <div v-else>
           <div v-if="count">
             <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
-              <div class="list-quote" v-for="entry in filteredData">
-                  <h4 class="writer col">{{entry.author}}</h4>
-                  <p class="quote-text col">{{entry.text}}</p>
+            <div id="columns">
+               <figure class="list-quote" v-for="entry in filteredData">
+                <div class="quote-text col"> <p>{{entry.text}}</p></div>
+                <div  class="writer">  <h4> &ndash; {{entry.author}}</h4></div>
+                </figure>                
               </div>
-               
-          </div>
-          <div v-else>
+            </div> 
+        <div v-else>
               <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
-          </div>
+        </div>
         </div>
       </script>
       <div id="demo">
           <form id="search" v-on:submit.prevent="onSubmit">
             <label>Search for a keyword</label><br>
-            <input type="search" id="searchInput" name="query" v-model="searchQuery" >
+            <input type="search" id="searchInput"  name="query" v-model.lazy="searchQuery" >
           </form>
           <demo-grid
             :data="gridData"
@@ -58,18 +60,6 @@
               function FocusOnInput()
                 { $("#searchInput").focus();}
                 $('label').click(function(){FocusOnInput()});
-
-
-var maxHeight = 0;
-
-$(".col").each(function(){
-   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
-});
-
-$("col.").height(maxHeight);
-
-
-              
       </script>
 </body>
 </html>
