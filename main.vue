@@ -94,7 +94,7 @@ var demo = new Vue({
   el: '#demo',
   data: 
   {
-    searchQuery: '',
+    searchQuery: 'camus',
     gridColumns: ['id','author', 'text'],
     //_quotes is the name of the JSON array from the data.js file 
     gridData: _quotes 

@@ -62,38 +62,6 @@ input[type='search']:focus
   height: 80px;
   padding: 10px 40px;
 }
-/*.list-quote
-{
-  border: 1px solid lightgrey;
-  margin: 20px;
-  width: 40%;
-  border-radius: 10px;
-  position: relative;
-  display: inline-block;
-}
-
-
-.list-quote .writer
-{
-  color: #4169E1;
-  min-width: 250px;
-  padding: 20px;
-}
-.list-quote .quote-text
-{
-  padding: 20px;
-  text-align: left;
-  font-size: 20px;
-  background-color: white;
-}
-.list-quote .writer, .list-quote .quote-text
-{
-  display: inline-block;
-  clear: both;
-}*/
-
-
-
 #columns {
   column-width: 500px;
   column-gap: 15px;
@@ -101,53 +69,43 @@ input[type='search']:focus
   max-width: 1100px;
   margin: 50px auto;
 }
-
-div#columns .list-quote {
+.list-quote {
   background: #fefefe;
-  border: 1px solid darkgrey;
   margin: 0 2px 15px;
-  padding: 15px;
+  padding: 10px 5px;
   padding-bottom: 10px;
   transition: opacity .4s ease-in-out;
   display: inline-block;
-  column-break-inside: avoid;
-  width: 100%; 
   cursor: pointer;
-  border-radius: 10px; 
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
-.writer h4
-{
+  border-radius: 2px; 
+  border: 0.5px solid lightgrey;
+box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.45);
+  width: 100%;
+}
+.writer { display: inline-block;}
+.quote-text { font-size: 25px; }
+.writer h4{
   font-size: 20px;
+  width: 200px;
   text-align: right;
-  padding: 20px;
 }
 .list-quote:hover  .writer { color :#4169E1;  }
-.quote-text {font-size: 25px; }
-
-div#columns:hover figure:not(:hover) {
+div#columns:hover .list-quotes:not(:hover) {
   opacity: 0.2;
 }
-
-@media screen and (max-width: 750px) { 
-  #columns { column-gap: 0px; }
-  #columns figure { width: 100%; }
-}
-
 .none { display: none; }
-.tomato
-{
-  color: tomato;
-}
-h4
-{
-  font-size: 20px;
-}
-
+.tomato { color: tomato; }
+.random-quote h4 { font-size: 20px; }
+.random h3{  margin: 20px; font-weight: bold;}
+.random p{  font-size: 25px;  margin: 20px;}
+.qqq{  font-size: 40px;  font-family: "Consolas"; line-height: 1;}
+.random-quote button:hover{ background-color: #4169E1; color: white;}
 .random:hover + .qqq{color: #4169E1;}
+@keyframes appear{0%{opacity: 0;  }100%{opacity: 1; }}
+
 .random
 {
-
-transition: 1s;  position: absolute;
+  transition: 1s;  position: absolute;
   cursor: pointer;
   width: 60%;
   background-color: #4169E1;
@@ -160,17 +118,14 @@ transition: 1s;  position: absolute;
   padding: 20px;
   animation: appear 1s;
 }
-.random h3{  margin: 20px; font-weight: bold;}
-.random p{  font-size: 25px;  margin: 20px;}
-.qqq{  font-size: 40px;  font-family: "Consolas"; line-height: 1;}
-
-.random-quote {
+.random-quote 
+{
   position: relative;
   width: 100%;
   height: 100%;
   height: inherit;
   display: block;
-  }
+}
 .random-quote button
 {
   position: relative;
@@ -184,12 +139,6 @@ transition: 1s;  position: absolute;
   border-radius: 10px; 
   background-color: white;
 }
-.random-quote button:hover
-{
- background-color: #4169E1;
- color: white;
-}
-@keyframes appear{0%{opacity: 0;  }100%{opacity: 1; }}
 
 /*mobile*/
 @media  screen and (max-width: 500px)
@@ -200,21 +149,22 @@ transition: 1s;  position: absolute;
     .random p{  font-size: 23px;}
     .random-quote button{margin : 20px auto 50px auto   ; width: 90%;position: absolute;}
     .random-quote button:focus{ background-color: white;   color: #222;}
-    .list-quote .writer { font-size: 15px; min-width: 100px; max-width: 100px; padding-top:50px;  position: relative;  }
-
+    .list-quote .writer { font-size: 15px; min-width: 100px; max-width: 100px; padding-top:50px;  position: relative; }
     .qqq {font-size: 25px;}
+  
+    .writer {margin-top: -40px; }
     body >img
-  {
-    width: 40px;
-    height: 40px;
-  }
-  input[type='text']:focus
-  {
-    width: 90%;
-    border: 2px solid #4169E1;
-    overflow: hidden;
-    padding: 10px 20px;
-    height: 60px;
-  }
+    {
+      width: 40px;
+      height: 40px;
+    }
+    input[type='text']:focus
+    {
+      width: 90%;
+      border: 2px solid #4169E1;
+      overflow: hidden;
+      padding: 10px 20px;
+      height: 60px;
+    }
 
 }
