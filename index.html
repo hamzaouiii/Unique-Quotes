@@ -33,11 +33,11 @@
             <h3 class="result-count">Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
             <div id="columns">
                <figure class="list-quote" v-for="entry in filteredData">
-                <div class="quote-text col"> <p>{{entry.text}}</p></div>
+                <div class="quote-text"> <p><span class="qqq">&ldquo;</span>{{entry.text}}<span class="qqq">&rdquo;</span></p></div>
                 <div  class="writer">  <h4> &ndash; {{entry.author}}</h4></div>
                 </figure>                
-              </div>
-            </div> 
+            </div>
+          </div> 
         <div v-else>
               <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
         </div>

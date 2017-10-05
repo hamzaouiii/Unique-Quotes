@@ -1,10 +1,10 @@
-*
-{
+ @import url('https://fonts.googleapis.com/css?family=Lora');
+*{
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
-h1,h2,h3,h4,h5,h6,label,p
+h1,h2,h3,h4,h5,h6,label
 {
   font-family: 'segoe UI';
   font-weight: lighter;
@@ -66,7 +66,7 @@ input[type='search']:focus
   column-width: 500px;
   column-gap: 15px;
   width: 90%;
-  max-width: 1100px;
+  max-width: 100%;
   margin: 50px auto;
 }
 .list-quote {
@@ -79,18 +79,22 @@ input[type='search']:focus
   cursor: pointer;
   border-radius: 2px; 
   border: 0.5px solid lightgrey;
-box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.45);
+  box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,0.45);
   width: 100%;
 }
-.writer { display: inline-block;}
-.quote-text { font-size: 25px; }
+.writer { display: inline-block; float: right; }
 .writer h4{
   font-size: 20px;
-  width: 200px;
-  text-align: right;
 }
+p {
+  font-size: 25px; 
+  font-family: 'Lora', serif;
+  font-weight: lighter;
+ ;
+}
+.quote-text{  padding: 10px 20px 10px 10px;  text-align: left}
 .list-quote:hover  .writer { color :#4169E1;  }
-div#columns:hover .list-quotes:not(:hover) {
+div#columns:hover figure:not(:hover) {
   opacity: 0.2;
 }
 .none { display: none; }
@@ -98,7 +102,7 @@ div#columns:hover .list-quotes:not(:hover) {
 .random-quote h4 { font-size: 20px; }
 .random h3{  margin: 20px; font-weight: bold;}
 .random p{  font-size: 25px;  margin: 20px;}
-.qqq{  font-size: 40px;  font-family: "Consolas"; line-height: 1;}
+.qqq{  font-size: 40px;  font-family: "Lora"; line-height: 1;}
 .random-quote button:hover{ background-color: #4169E1; color: white;}
 .random:hover + .qqq{color: #4169E1;}
 @keyframes appear{0%{opacity: 0;  }100%{opacity: 1; }}
@@ -108,9 +112,8 @@ div#columns:hover .list-quotes:not(:hover) {
   transition: 1s;  position: absolute;
   cursor: pointer;
   width: 60%;
-  background-color: #4169E1;
-  color: white;
-  border: 2px solid #4169E1;
+  color: #222;
+  border: 2px solid #222;
   border-radius: 20px 100px 20px 100px; 
   left: 0;
   right:  0;
@@ -141,30 +144,28 @@ div#columns:hover .list-quotes:not(:hover) {
 }
 
 /*mobile*/
-@media  screen and (max-width: 500px)
+@media  screen and (max-width: 400px)
 {
-    body > h1 {font-size: 35px;}
-    .random {  width: 90%; padding: 5px; margin: 20px auto 20px auto; position: absolute;}
-    .random h3{  font-size: 23px;}
-    .random p{  font-size: 23px;}
-    .random-quote button{margin : 20px auto 50px auto   ; width: 90%;position: absolute;}
-    .random-quote button:focus{ background-color: white;   color: #222;}
-    .list-quote .writer { font-size: 15px; min-width: 100px; max-width: 100px; padding-top:50px;  position: relative; }
-    .qqq {font-size: 25px;}
-    .result-count{font-size: 25px;}
-    .writer {margin-top: -40px; }
-    body >img
-    {
-      width: 40px;
-      height: 40px;
-    }
-    input[type='text']:focus
-    {
-      width: 90%;
-      border: 2px solid #4169E1;
-      overflow: hidden;
-      padding: 10px 20px;
-      height: 60px;
-    }
-
+  body > h1 {font-size: 35px; overflow-x: hidden;}
+  .random {  width: 90%; padding: 5px; margin: 20px auto 20px auto; position: absolute;}
+  .random h3{  font-size: 23px;}
+  .random p{  font-size: 23px;}
+  .random-quote button{margin : 20px auto 50px auto; width: 90%;position: absolute;}
+  .random-quote button:focus{ background-color: white;   color: #222;}
+  .qqq {font-size: 25px;}
+  .quote-text{ text-align: center;}
+  .result-count{font-size: 25px;}
+  body >img
+  {
+    width: 40px;
+    height: 40px;
+  }
+  input[type='text']:focus
+  {
+    width: 90%;
+    border: 2px solid #4169E1;
+    overflow: hidden;
+    padding: 10px 20px;
+    height: 60px;
+  }
 }
