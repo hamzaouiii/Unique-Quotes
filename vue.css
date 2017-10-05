@@ -151,7 +151,7 @@ div#columns:hover .list-quotes:not(:hover) {
     .random-quote button:focus{ background-color: white;   color: #222;}
     .list-quote .writer { font-size: 15px; min-width: 100px; max-width: 100px; padding-top:50px;  position: relative; }
     .qqq {font-size: 25px;}
-  
+    .result-count{font-size: 25px;}
     .writer {margin-top: -40px; }
     body >img
     {

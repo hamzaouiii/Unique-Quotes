@@ -30,7 +30,7 @@
 
         <div v-else>
           <div v-if="count">
-            <h3>Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
+            <h3 class="result-count">Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
             <div id="columns">
                <figure class="list-quote" v-for="entry in filteredData">
                 <div class="quote-text col"> <p>{{entry.text}}</p></div>
