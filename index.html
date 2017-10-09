@@ -7,21 +7,23 @@
   <link rel="icon" type="image/png" href="quote.png">
   <link rel="stylesheet" type="text/css" href="vue.css">
   <!-- Vuejs and Jquery -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/debounce.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <script src="vue.min.vue"></script>
-  <script src="jquery.min.js"></script>
+
 </head>
 <body onload="FocusOnInput()">
-      
+     <div  >
 <img src="quote.png">     
 <h1>Unique Quotes</h1>
+     </div> 
             <!-- template of the rendered content -->
       <script type="text/x-template" id="grid-template">
 
-        <div class="random-quote"  v-if="searchFilled">
+        <div  class="random-quote container"  v-if="searchFilled">
           <h4>Random Quote</h4>
           <transition name="disappear"  leave-active-class="disappear">
-            <div :key="quote.text" v-if="show" v-on:click="changeQuote" class="random">
+            <div :key="quote.text" v-if="show" v-on:click="changeQuote" class=" col-md-12 random">
               <h3 >{{quote.author}} </h3>
               <p ><span class="qqq">&ldquo;</span>{{quote.text}}<span class="qqq">&rdquo;</span></p>
             </div>
@@ -29,21 +31,21 @@
         </div>
 
         <div v-else>
-          <div v-if="count">
-            <h3 class="result-count">Showing {{count}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
-            <div id="columns">
-               <figure class="list-quote" v-for="entry in filteredData">
-                <div class="quote-text"> <p><span class="qqq">&ldquo;</span>{{entry.text}}<span class="qqq">&rdquo;</span></p></div>
-                <div  class="writer">  <h4> &ndash; {{entry.author}}</h4></div>
-                </figure>                
+          <div v-if="foundResultsCount" v-on:scroll="">
+            <h3 class="result-count">Found {{foundResultsCount}} Quotes<span v-bind:class="{none: details}"> related to "<span class="tomato">{{searchQuery}}</span>"</span>.</h3>
+            <div class="grid container justify-content-md-center" >
+                <div class="grid-item col-md-12" v-for="item in filteredData">
+                      <div class="quote-text "> <p><span class="qqq">&ldquo;</span>{{item.text}}<span class="qqq">&rdquo;</span></p></div>
+                      <div  class="writer" >  <h4> &ndash; {{item.author}}</h4></div>
+                </div>                
             </div>
           </div> 
-        <div v-else>
-              <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
-        </div>
+          <div v-else>
+                <h3>Could not find the keyword "<span class="tomato">{{searchQuery}}</span>" in any Quote. </h3>
+          </div>
         </div>
       </script>
-      <div id="demo">
+      <div id="app">
           <form id="search" v-on:submit.prevent="onSubmit">
             <label>Search for a keyword</label><br>
             <input type="search" id="searchInput"  name="query" v-model.lazy="searchQuery" >
@@ -57,9 +59,10 @@
       <script type="text/javascript" src=data.js></script>
       <script type="text/javascript" src=main.vue></script>
       <script type="text/javascript">
-              function FocusOnInput()
-                { $("#searchInput").focus();}
-                $('label').click(function(){FocusOnInput()});
+      function FocusOnInput()
+          { $("#searchInput").focus();}
+      $('label').click(function(){FocusOnInput()});
+
       </script>
 </body>
 </html>

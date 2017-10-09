@@ -1,4 +1,6 @@
-Vue.component('demo-grid', {
+var i =1;
+var executed = true;
+ Vue.component('demo-grid', {
         template: '#grid-template',
         props: {
           data: Array,
@@ -18,19 +20,21 @@ Vue.component('demo-grid', {
             details: true,
             flag: true,
             quote: this.changeQuote(),
-            show: true
+            show: true,
+            shownresults:   []
           }
         },
         computed: 
         {  
           filteredData: function ()  {
-            // this.slowdown();
-            return this.getResult() ;
+            // this.loadResults();
+            // this should be executed only one at the begining
+            return this.getResults();
           },
-          
-          count: function()  {
-          if ( this.filteredData.length == this.data.length )    {  this.details = true;   return "all";}
-           else  {this.details = false;return this.filteredData.length;}
+          foundResultsCount: function()  {
+          var _foundResults = this.getResults();
+          this.details = false;
+          return _foundResults.length;
           },
           searchQuery: function(){
             return this.filterKey;
@@ -41,7 +45,7 @@ Vue.component('demo-grid', {
           },
           randomQuote: function() {
              changeQuote();
-          }
+          } 
         },
         filters: {
           capitalize: function (str)  {
@@ -53,8 +57,7 @@ Vue.component('demo-grid', {
           sortBy: function (key) {
             this.sortKey = key
             this.sortOrders[key] = this.sortOrders[key] * -1
-          }
-          ,
+          },
           changeQuote: function() {
             var min=1;
             var max = this.data.length;
@@ -63,12 +66,11 @@ Vue.component('demo-grid', {
             this.quote = changedQuote;
             return changedQuote;
           },
-          getResult:  function()  {
+          getResults:  function()  {
               var sortKey = this.sortKey;
               var filterKey = this.filterKey && this.filterKey.toLowerCase()
               var order = this.sortOrders[sortKey] || 1
               var data = this.data
-            console.log(filterKey);
             if (filterKey) 
             {
               data = data.filter(function (row) {
@@ -90,8 +92,8 @@ Vue.component('demo-grid', {
         }
       })
  
-var demo = new Vue({
-  el: '#demo',
+var app = new Vue({
+  el: '#app',
   data: 
   {
     searchQuery: '',
