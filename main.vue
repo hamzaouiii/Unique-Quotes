@@ -27,8 +27,8 @@ var executed = true;
         computed: 
         {  
           filteredData: function ()  {
-            // this.loadResults();
-            // this should be executed only one at the begining
+            // this.loadResults()
+;            // this should be executed only one at the begining
             return this.getResults();
           },
           foundResultsCount: function()  {
