@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 *{
   box-sizing: border-box;
   margin: 0px;
@@ -6,7 +8,7 @@
 }
 h1,h2,h3,h4,h5,h6,label
 {
-  font-family: 'segoe UI';
+  font-family: 'Open Sans';
   font-weight: lighter;
 }
 body 
@@ -48,7 +50,7 @@ input[type='search']
   width: 320px;
   height: 0px;
   font-weight: lighter;
-  font-family: 'segoe UI';
+  font-family: 'Open Sans';
   font-size: 30px;
   
   transition: 0.8s;
@@ -62,33 +64,6 @@ input[type='search']:focus
   height: 80px;
   padding: 10px 40px;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Lora');
-*{
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-h1,h2,h3,h4,h5,h6,label
-{
-  font-family: 'segoe UI';
-  font-weight: lighter;
-}
-body 
-{
-  font-family: Helvetica Neue, Arial, sans-serif;
-  font-size: 14px;
-  color: #444;
-  text-align: center;
-  position: relative;
-  height: 100%;
-}
-label{cursor: pointer; transition: 0.5s;}
-h3,label
-{
-  font-size: 32px;
-}
-
 .grid {  
   max-width: 100%; 
   width:90%; 
